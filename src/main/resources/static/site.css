@@ -1,0 +1,69 @@
+body {
+    background-color: lightgray;
+}
+.text-center {
+    text-align: center;
+}
+
+.botao-direita{
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav {
+  width:100%;
+  text-align:center;
+  font-size: 1em;
+}
+li {
+  float: left;
+  position: relative;
+  display: block;
+  width: 100%;
+  float: left;
+}
+li:after {
+  color: #f0f0f0;
+  content: '|';
+  position: absolute;
+  top: 2.3em;
+  right: 0;
+  z-index: 1;
+  font-family: 'Source Sans Pro', sans-serif;
+  transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  display:none;
+}
+li:last-child:after {
+  content: none;
+}
+a {
+  color: #777;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  transition: .3s;
+  line-height: 2em;
+  padding: 2em;
+}
+li.ativo > a,li > a:hover { background-color:transparent; color:#111; }
+li > a:after {
+  content: '';
+  position: absolute;
+  bottom: 1.5em;
+  left: 15%;
+  width: 70%;
+  height: 4px;
+  transform: scaleX(0);
+  background-color: #27d7dd;
+  transition: all .2s ease;
+  opacity: 0.6;
+}
+li.ativo > a:after,li > a:hover::after { transform:scaleX(1); }
+/*960PX BREAKPOINT*/
+@media (min-width:60em){
+    li       { width:auto; display:inline; }
+    li:after { display:block; }
+}
